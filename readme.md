@@ -7,3 +7,7 @@
 - Stores:
   - Alternate.de
   - Optional: Mindfactory, NBB
+
+## Documentation
+
+- [Requests](https://2.python-requests.org/en/master/user/quickstart/)
