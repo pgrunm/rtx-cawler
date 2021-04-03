@@ -1,6 +1,8 @@
 # Getting the latest alpine linux image
 FROM alpine:latest
 
+ENV PYTHONUNBUFFERED=1
+
 # Install necessary packages like Python3 etc
 RUN apk --no-cache add python3 \
     python3-dev \
