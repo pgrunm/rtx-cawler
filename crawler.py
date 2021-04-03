@@ -90,9 +90,9 @@ if __name__ == "__main__":
     logging.info(f'Bot started with log level {logging.root.level}!')
     try:
         logging.debug('Reading API key...')
-        updater = Updater(
-            '1715558053:AAHvKe1UdazoIR8HHUA1FJesI8vBOe58KeM', use_context=True)
-        # updater = Updater(os.environ['bot_api_key'], use_context=True)
+        # updater = Updater(
+        # '', use_context=True)
+        updater = Updater(os.environ['bot_api_key'], use_context=True)
     except Exception as e:
         print(f'Erro: {e}')
         logging.debug(f'Failed to read API key with error: {e}')
