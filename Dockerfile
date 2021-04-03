@@ -16,9 +16,9 @@ COPY * /app/rtxcrawler/
 
 # Install the required packages with pip
 RUN pip3 install --upgrade pip && \
-    pip3 install -r /app/Telegrambot/requirements.txt 
+    pip3 install -r /app/rtxcrawler/requirements.txt 
 
 # Save the API key in the environment
-ENV tg_api_key=0123456789:ABCqxtafQx-5aYP8U1zRB9oEgXTzZ2Awx1M
+ENV bot_api_key=0123456789:ABCqxtafQx-5aYP8U1zRB9oEgXTzZ2Awx1M
 
-CMD ["python3", "/app/Telegrambot/crawler.py"]
+CMD ["python3", "/app/rtxcrawler/crawler.py"]
