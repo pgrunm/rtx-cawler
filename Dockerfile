@@ -1,5 +1,5 @@
 # Getting the latest alpine linux image
-FROM alpine:latest
+FROM arm32v7/alpine:latest
 
 ENV PYTHONUNBUFFERED=1
 
