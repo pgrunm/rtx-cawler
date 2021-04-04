@@ -1,7 +1,10 @@
 # Getting the latest alpine linux image
-FROM alpine:latest
+FROM arm32v7/alpine:latest
 
 ENV PYTHONUNBUFFERED=1
+
+# Copy qemu armc to binary path
+COPY qemu-arm-static /usr/bin/
 
 # Install necessary packages like Python3 etc
 RUN apk --no-cache add python3 \
