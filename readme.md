@@ -11,3 +11,4 @@
 ## Documentation
 
 - [Requests](https://2.python-requests.org/en/master/user/quickstart/)
+- [Multiarch Docker Image](https://stackoverflow.com/a/54595564)
