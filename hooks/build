@@ -1,8 +1,8 @@
 #!/bin/bash
 
-export DOCKER_CLI_EXPERIMENTAL=enabled
-
-#docker buildx create --use --driver docker-container
-#docker buildx build --platform linux/amd64,linux/arm64 -f $DOCKERFILE_PATH -t $IMAGE_NAME . --push
-docker buildx create --use
-docker buildx build --platform linux/arm64 -f $DOCKERFILE_PATH -t $IMAGE_NAME . --push
+docker build \
+    --file "${DOCKERFILE_PATH}" \
+    --build-arg BUILD_DATE="$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
+    --build-arg VCS_REF="$(git rev-parse --short HEAD)" \
+    --tag "$IMAGE_NAME" \
+    .
