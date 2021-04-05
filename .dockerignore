@@ -1,0 +1,9 @@
+Dockerfile*
+readme.md
+*.txt
+
+# Directories
+venv/*
+.vscode/*
+__pycache__/*
+.git/*
