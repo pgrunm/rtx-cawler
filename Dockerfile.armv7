@@ -1,24 +1,5 @@
 # Getting the latest alpine linux image
-FROM arm32v7/alpine:latest
-
-ENV PYTHONUNBUFFERED=1
-
-# Copy qemu armc to binary path
-COPY qemu-arm-static /usr/bin/
-
-# Install necessary packages like Python3 etc
-RUN apk --no-cache add python3 \
-    python3-dev \
-    build-base \
-    libffi-dev \
-    openssl-dev
-
-# Install pip...
-run echo "**** install pip ****" && \
-    python3 -m ensurepip && \
-    rm -r /usr/lib/python*/ensurepip && \
-    pip3 install --no-cache --upgrade pip setuptools wheel && \
-    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi
+FROM python:slim
 
 # Run the following commands within /app/Telegrambot
 WORKDIR /app/rtxcrawler
@@ -27,8 +8,7 @@ WORKDIR /app/rtxcrawler
 COPY * /app/rtxcrawler/
 
 # Install the required packages with pip
-RUN pip3 install --upgrade pip && \
-    pip3 install -r /app/rtxcrawler/requirements.txt 
+RUN pip install -r /app/rtxcrawler/requirements.txt 
 
 # Save the API key in the environment
 ENV bot_api_key=0123456789:ABCqxtafQx-5aYP8U1zRB9oEgXTzZ2Awx1M
