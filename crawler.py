@@ -86,10 +86,7 @@ def callback_minute(context: CallbackContext):
 if __name__ == "__main__":
     log_level = ''
     # Read the logging configuration from environment variable
-    if os.environ['log_level'] == '' | | os.environ['log_level'] == None:
-        log_level = logging.INFO
-    else:
-        log_level = os.environ['log_level'].upper()
+    log_level = os.getenv('log_level', default='INFO')
 
     # Logging configuration
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
