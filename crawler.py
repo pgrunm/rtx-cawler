@@ -84,9 +84,16 @@ def callback_minute(context: CallbackContext):
 
 
 if __name__ == "__main__":
+    log_level = ''
+    # Read the logging configuration from environment variable
+    if os.environ['log_level'] == '' | | os.environ['log_level'] == None:
+        log_level = logging.INFO
+    else:
+        log_level = os.environ['log_level'].upper()
+
     # Logging configuration
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                        level=logging.DEBUG, filename='bot.log', encoding='utf-8', filemode='w')
+                        level=log_level, filename='bot.log', encoding='utf-8', filemode='w')
     logging.info(f'Bot started with log level {logging.root.level}!')
     try:
         logging.debug('Reading API key...')
