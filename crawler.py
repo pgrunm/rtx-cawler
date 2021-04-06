@@ -9,11 +9,11 @@ from telegram.ext import CallbackContext, CommandHandler, Updater
 
 
 def check_cards():
+    with open('urls.txt', 'r') as f:
+        # Read the content of the url file into list
+        urls = list(f)
+        logging.debug(f'Read list with content into memory')
 
-    urls = [
-        'https://www.alternate.de/ZOTAC/GeForce-RTX-3060-TWIN-EDGE-OC-Grafikkarte/html/product/1715299',
-        'https://www.alternate.de/GIGABYTE/GeForce-RTX-3060-EAGLE-OC-12G-Grafikkarte/html/product/1723539'
-    ]
     reply_msg = ''
     for url in urls:
         # Get the content of the URL
